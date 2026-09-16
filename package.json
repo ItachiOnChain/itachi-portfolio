@@ -1,0 +1,16 @@
+{
+  "name": "itachi-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Uchiha Itachi Interactive Experience & Portfolio",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build && cp -r frames dist/frames",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

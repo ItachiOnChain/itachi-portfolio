@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Itachi — Co-Founder at PayZoll</title>
+<meta name="description" content="Itachi is the Co-Founder of PayZoll, building global payment infrastructure that enables individuals to get paid and companies to pay teams, contractors and vendors using stablecoins and fiat currencies across 80+ countries." />
+
+<!-- Open Graph / Social Meta -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://payzoll.finance" />
+<meta property="og:title" content="Itachi — Co-Founder at PayZoll" />
+<meta property="og:description" content="Building global payment infrastructure that enables individuals to get paid and companies to pay teams using stablecoins and fiat across 80+ countries." />
+<meta property="og:image" content="frames/storm.jpg" />
+
+<!-- Twitter Meta -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Itachi — Co-Founder at PayZoll" />
+<meta name="twitter:description" content="Building global payment infrastructure that enables individuals to get paid and companies to pay teams using stablecoins and fiat across 80+ countries." />
+<meta name="twitter:image" content="frames/storm.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@300;500;700;900&family=Cinzel:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ══════════ PRELOADER ══════════ -->
+<div class="loader" id="loader">
+  <div class="loader__inner">
+    <div class="loader__glyph">ITACHI FROM PAYZOLL</div>
+    <div class="loader__bar"><span id="loaderFill"></span></div>
+    <div class="loader__meta">
+      <span>I HELP INDIVIDUALS & BUSINESSES TO PAY ANYONE ANYWHERE GLOBAL</span>
+      <span id="loaderPct">00</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ AMBIENT LAYERS ══════════ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- ══════════ AMATERASU — BLACK FLAME HEM ══════════ -->
+<div class="amaterasu-bed" aria-hidden="true"></div>
+<canvas class="amaterasu" id="amaterasuCanvas" aria-hidden="true"></canvas>
+
+<!-- ══════════ STORM ══════════ -->
+<div class="storm" aria-hidden="true">
+  <div class="storm__flash" id="stormFlash"></div>
+  <svg class="storm__bolt" id="stormBolt" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+    <path id="boltPath" d="" fill="none" stroke="#fff" stroke-width="2"
+          stroke-linejoin="round" stroke-linecap="round"/>
+    <path id="boltGlow" d="" fill="none" stroke="#9fd8ff" stroke-width="9"
+          stroke-linejoin="round" stroke-linecap="round" opacity=".45"/>
+  </svg>
+</div>
+<div class="cursor" id="cursor" aria-hidden="true"><span></span></div>
+
+<!-- ══════════ FIXED CHROME (NAVBAR) ══════════ -->
+<header class="chrome">
+  <a href="#scrub" class="chrome__mark" aria-label="Itachi Home">
+    <svg viewBox="0 0 100 100" class="uchiwa" aria-hidden="true">
+      <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M50 12 A38 38 0 0 1 50 88 A19 19 0 0 1 50 50 A19 19 0 0 0 50 12Z" fill="currentColor" opacity=".9"/>
+      <circle cx="50" cy="31" r="6" fill="var(--ink)"/>
+      <circle cx="50" cy="69" r="6" fill="currentColor"/>
+    </svg>
+    <div class="chrome__brand-text">
+      <span>ITACHI</span>
+      <small>CO-FOUNDER @ PAYZOLL</small>
+    </div>
+  </a>
+
+  <nav class="chrome__nav">
+    <a href="#about" data-sub="FOUNDER">ABOUT ME</a>
+    <a href="#payzoll" data-sub="INFRASTRUCTURE">ABOUT PAYZOLL</a>
+    <a href="#contact" data-sub="CONNECT">CONTACT ME</a>
+  </nav>
+
+  <div class="chrome__actions">
+    <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="chrome__cta chrome__cta--call">BOOK A CALL</a>
+    <button class="chrome__sound" id="soundToggle" type="button"
+            aria-pressed="false" title="Thunder Audio Effects">
+      <span class="chrome__sound-jp">AUDIO</span>
+      <span class="chrome__sound-state" id="soundState">OFF</span>
+    </button>
+    <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="chrome__cta chrome__cta--signup">CHECK OUT PAYZOLL</a>
+  </div>
+</header>
+
+<div class="rail rail--left" aria-hidden="true">
+  <span>PAYZOLL · PAY ANYONE ANYWHERE</span>
+</div>
+<div class="rail rail--right" aria-hidden="true">
+  <span id="railScroll">SCROLL 000%</span>
+</div>
+
+<div class="hint" id="hint">
+  <span class="hint__line"></span>
+  <span class="hint__en">SCROLL TO KNOW MORE</span>
+</div>
+
+<main>
+
+<!-- ══════════ ACT I — SCROLL SCRUB ══════════ -->
+<section class="scrub" id="scrub">
+  <div class="scrub__sticky">
+    <canvas id="mainCanvas"></canvas>
+    <div class="scrub__glow" id="scrubGlow"></div>
+
+    <!-- Phase 0: Silence -->
+    <div class="phase" data-phase="0">
+      <div class="phase__kicker">IF YOU'RE A FREELANCER, CONTRACTOR OR EMPLOYEE, I HELP</div>
+      <h1 class="phase__title">INDIVIDUALS</h1>
+      <p class="phase__desc">receive USDC, USDT, and 50+ fiat currencies from clients around the world and settle directly into your local bank account.</p>
+      <div class="phase__actions">
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
+      </div>
+    </div>
+
+    <!-- Phase 1: Awakening -->
+    <div class="phase" data-phase="1">
+      <div class="phase__kicker">IF YOU'RE A SOLE PROPRIETOR, MSME, LLP OR COMPANY, I HELP</div>
+      <h2 class="phase__title">BUSINESSES</h2>
+      <p class="phase__desc">receive international payments from customers around the world and settle them directly into your business account.</p>
+      <div class="phase__actions">
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
+      </div>
+    </div>
+
+    <!-- Phase 2: Sharingan / Problem Statement -->
+    <div class="phase" data-phase="2">
+      <div class="phase__kicker">IF YOU'RE EMPLOYER, CONTRACTORS OR VENDORS PAYING GLOBALLY, I HELP</div>
+      <h2 class="phase__title">TEAMS</h2>
+      <p class="phase__desc">pay people across borders using USDC, USDT, or 50+ fiat currencies, with payouts to local bank accounts in 80+ countries.</p>
+      <div class="phase__actions">
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
+      </div>
+    </div>
+
+    <!-- Phase 3: A Thousand Payments -->
+    <div class="phase" data-phase="3">
+      <h2 class="phase__title">WHY OUR PAYZOLL?</h2>
+      <div class="phase__pills">
+        <div class="pill"><strong>GLOBAL</strong> <span>50+ currencies · 80+ countries</span></div>
+        <div class="pill"><strong>SIMPLE</strong> <span>Get paid and pay globally from one platform.</span></div>
+        <div class="pill"><strong>TRANSPARENT</strong> <span>1% flat fee. No hidden markups.</span></div>
+        <div class="pill"><strong>COMPLIANT</strong> <span>Built around compliant banking rails</span></div>
+        <div class="phase__actions">
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
+      </div>
+      </div>
+    </div>
+
+
+    <!-- Title lockup, in the opening beat -->
+    <div class="titleblock" id="titleblock">
+      <h1 class="titleblock__name">ITACHI</h1>
+      <p class="titleblock__sub"> CO-FOUNDER &nbsp; @PAYZOLL.FINANCE</p>
+    </div>
+
+    <canvas id="featherCanvas" class="feathers"></canvas>
+  </div>
+</section>
+
+<!-- ══════════ FOUNDER IDENTITY SECTION ══════════ -->
+<section class="founder" id="about">
+  <div class="container">
+    <div class="founder__inner">
+      <h2 class="founder__title" data-reveal>
+        ITACHI
+        <span>CO-FOUNDER @ PAYZOLL</span>
+      </h2>
+
+      <blockquote class="founder__quote" data-reveal>
+        “Building PayZoll.finance to make global payments simpler, faster, and truly accessible like UPI.”
+      </blockquote>
+
+      <p class="founder__bio" data-reveal>
+        I spend my time building payment rails, working directly with founders and contractors, and turning complex financial infrastructure into something people can actually use every day.
+      </p>
+
+      <div class="founder__ctas" data-reveal>
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN UP</a>
+        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL WITH ITACHI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PAYZOLL CORE SECTION ══════════ -->
+<section class="payzoll-core" id="payzoll">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div class="section-tag">BUILDING PAYZOLL · CROSS-BORDER PAYMENTS INFRASTRUCTURE</div>
+      <h3 class="section-title section-title--sm scroll-highlight" data-scroll-highlight>
+        WE BUILT PAYZOLL TO MAKE MOVING MONEY GLOBALLY SIMPLE.
+      </h3>
+      <p class="scroll-highlight" data-scroll-highlight>
+        Swift transfers and banks often add high FX markups and extra charges. PayPal cost around 4.4%, while many fintechs hide another 2–5% in the exchange rate and hidden fees. Payzoll keeps it simple: just 1% per transfer, with no hidden FX markups, no surprise fees, and one clear price.
+      </p>
+    </div>
+
+    <!-- Large Visual Statistics Grid -->
+    <div class="stats-grid" data-reveal>
+      <div class="stat-card">
+        <div class="stat-card__val">50+</div>
+        <div class="stat-card__label">FIAT CURRENCIES</div>
+        <div class="stat-card__desc">Receive and send payments in supported fiat currencies</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val">80+</div>
+        <div class="stat-card__label">COUNTRIES</div>
+        <div class="stat-card__desc">Pay and get paid globally</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val stat-card__val--text">HYBRID</div>
+        <div class="stat-card__label">STABLECOINS + FIAT</div>
+        <div class="stat-card__desc">Stablecoins and local banking rails</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card__val stat-card__val--text">GLOBAL</div>
+        <div class="stat-card__label">BORDERLESS RAILS</div>
+        <div class="stat-card__desc">Move money globally</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ACT II — MOUSE-TRACKED EYES ══════════ -->
+<section class="eyes" id="eyes">
+  <div class="eyes__sticky">
+    <canvas id="eyeCanvas"></canvas>
+    <div class="eyes__flare" id="eyeFlare"></div>
+    <div class="eyes__frame">
+      <div class="eyes__label eyes__label--tl"> · VISION</div>
+      <div class="eyes__label eyes__label--tr">LIVE TRACKING</div>
+      <div class="eyes__label eyes__label--bl" id="eyeReadout">GAZE CENTER 00.0 / FRAME 00</div>
+      <div class="eyes__label eyes__label--br">MOVE YOUR CURSOR</div>
+    </div>
+
+    <div class="eyes__copy">
+      <h2>SEE HOW MONEY MOVES THROUGH <span>PAYZOLL</span>.</h2>
+      <div class="eyes__actions">
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN IN TO PAYZOLL</a>
+        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRODUCT FLOW SECTION ══════════ -->
+<section class="product-flow" id="how-it-works">
+  <div class="container">
+    <div class="section-header text-center" data-reveal>
+      <div class="section-tag">PRODUCT FLOW</div>
+      <h2 class="section-title">
+        HOW PAYZOLL WORKS<br>
+        <span>FOUR STEPS TO GLOBAL SETTLEMENT</span>
+      </h2>
+      <p class="section-lead">
+        A seamless path for global money movement, built on stablecoins and direct local clearing.
+      </p>
+    </div>
+
+    <div class="flow-grid">
+      <div class="flow-card" data-reveal>
+        <div class="flow-card__step">STEP 01</div>
+        <h3 class="flow-card__title">GET PAID</h3>
+        <p class="flow-card__desc">Receive payments from clients, companies, or platforms anywhere in the world.</p>
+        <div class="flow-card__badge">GLOBAL INVOICING</div>
+      </div>
+      <div class="flow-card" data-reveal>
+        <div class="flow-card__step">STEP 02</div>
+        <h3 class="flow-card__title">CHOOSE YOUR RAIL</h3>
+        <p class="flow-card__desc">Accept digital dollars onchain or settle directly into 50+ local fiat currencies.</p>
+        <div class="flow-card__badge">STABLECOINS &amp; FIAT</div>
+      </div>
+      <div class="flow-card" data-reveal>
+        <div class="flow-card__step">STEP 03</div>
+        <h3 class="flow-card__title">MOVE GLOBALLY</h3>
+        <p class="flow-card__desc">Send money across borders in seconds with minimal fees and zero hold-ups.</p>
+        <div class="flow-card__badge">INSTANT ROUTING</div>
+      </div>
+      <div class="flow-card" data-reveal>
+        <div class="flow-card__step">STEP 04</div>
+        <h3 class="flow-card__title">PAY LOCALLY</h3>
+        <p class="flow-card__desc">Settle funds directly into local bank accounts across 80+ countries.</p>
+        <div class="flow-card__badge">LOCAL CLEARING</div>
+      </div>
+    </div>
+
+    <div class="flow-actions text-center" data-reveal>
+      <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">SIGN UP FOR PAYZOLL</a>
+      <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">BOOK A CALL</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ WHO IS PAYZOLL FOR? ══════════ -->
+<section class="audience" id="audience">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div class="section-tag">AUDIENCE · WHO IS PAYZOLL FOR</div>
+      <h2 class="section-title">
+        BUILT FOR EVERYONE<br>
+        <span>MOVING VALUE GLOBALLY</span>
+      </h2>
+    </div>
+
+    <div class="audience__grid">
+      <div class="audience-card" data-reveal>
+        <span class="audience-card__num">01 / INDIVIDUALS</span>
+        <h3 class="audience-card__title">FOR INDIVIDUALS</h3>
+        <p class="audience-card__highlight">Get paid globally.</p>
+        <p class="audience-card__desc">For freelancers, contractors, and individuals receiving international client payments.</p>
+        <div class="audience-card__pill">STABLECOINS + LOCAL FIAT</div>
+      </div>
+
+      <div class="audience-card" data-reveal>
+        <span class="audience-card__num">02 / COMPANIES</span>
+        <h3 class="audience-card__title">FOR COMPANIES</h3>
+        <p class="audience-card__highlight">Pay your people globally.</p>
+        <p class="audience-card__desc">Pay distributed teams, contractors, and vendors across borders without banking bottlenecks.</p>
+        <div class="audience-card__pill">PAYROLL &amp; VENDORS</div>
+      </div>
+
+      <div class="audience-card" data-reveal>
+        <span class="audience-card__num">03 / BUSINESSES</span>
+        <h3 class="audience-card__title">FOR BUSINESSES</h3>
+        <p class="audience-card__highlight">Move money across borders.</p>
+        <p class="audience-card__desc">Use stablecoins and fiat payment rails for international transactions and instant treasury movement.</p>
+        <div class="audience-card__pill">CROSS-BORDER LIQUIDITY</div>
+      </div>
+    </div>
+
+    <div class="audience__actions" data-reveal>
+      <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN UP</a>
+      <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ACT III — THE PAYZOLL DIFFERENCE / JUTSU GRID ══════════ -->
+<section class="jutsu" id="jutsu">
+  <div class="jutsu__reveal" id="jutsuReveal" aria-hidden="true"></div>
+  <div class="jutsu__rain" aria-hidden="true"></div>
+  <canvas class="ghost" id="ghostCanvas" aria-hidden="true"></canvas>
+
+  <div class="container jutsu__inner">
+    <div class="jutsu__head">
+      <span class="eyebrow" data-px="0.10">BEHIND PAYZOLL</span>
+      <h2 data-px="0.18">Global money movement<br>shouldn't require a maze.</h2>
+      <p data-px="0.26">The core architecture behind PayZoll — connecting modern onchain liquidity with battle-tested banking rails. Transparent, swift, and built for builders.</p>
+      <div class="jutsu__meta" data-px="0.34">
+        <span><i>SPEED</i>INSTANT RAILS</span>
+        <span><i>HYBRID</i>DUAL STACK</span>
+        <span><i>PILLARS</i>FOUR CORE RAILS</span>
+      </div>
+      <p class="jutsu__hint" data-px="0.40">HOVER · ILLUMINATE THE NETWORK</p>
+    </div>
+
+    <!-- 4 Feature Cards -->
+    <div class="jutsu__grid">
+      <div class="card">
+        <span class="card__num">01</span>
+        <div class="card__title">STABLECOINS</div>
+        <div class="card__sub">DIGITAL DOLLARS</div>
+        <p class="card__text">Fast, borderless settlement using digital dollars. Settle transactions in seconds without traditional banking friction or intermediary hold-ups.</p>
+        <div class="card__foot"><i>RAIL</i>ONCHAIN SETTLEMENT</div>
+      </div>
+
+      <div class="card">
+        <span class="card__num">02</span>
+        <div class="card__title">50+ FIAT</div>
+        <div class="card__sub">LOCAL CURRENCIES</div>
+        <p class="card__text">Seamless integration with 50+ fiat currencies worldwide. Let your recipients receive in the native currencies they actually spend every day.</p>
+        <div class="card__foot"><i>FX</i>NATIVE LOCAL CURRENCY</div>
+      </div>
+
+      <div class="card">
+        <span class="card__num">03</span>
+        <div class="card__title">80+ NATIONS</div>
+        <div class="card__sub">GLOBAL COVERAGE</div>
+        <p class="card__text">Direct access to local clearing rails across 80+ jurisdictions. Low fees and swift local deposits without correspondent bank penalties.</p>
+        <div class="card__foot"><i>LOCAL</i>DOMESTIC CLEARING</div>
+      </div>
+
+      <div class="card">
+        <span class="card__num">04</span>
+        <div class="card__title">CROSS-BORDER</div>
+        <div class="card__sub">UNIFIED PAYMENTS</div>
+        <p class="card__text">One cohesive infrastructure for individuals, companies, and businesses. Move money across borders without navigating fragmented payment silos.</p>
+        <div class="card__foot"><i>STACK</i>SINGLE INTEGRATION</div>
+      </div>
+    </div>
+
+    <!-- Current Build Reveal / Culmination block -->
+    <div class="current-build" data-reveal>
+      <div class="current-build__header">
+        <span class="current-build__badge">CURRENT BUILD</span>
+        <h3 class="current-build__title">PAYZOLL</h3>
+        <p class="current-build__tag">GLOBAL PAYMENTS. BUILT FOR THE ONCHAIN WORLD.</p>
+      </div>
+      <p class="current-build__desc">
+        PayZoll enables individuals to get paid and companies to pay teams, contractors, and vendors. Native support for stablecoins and 50+ fiat currencies across 80+ countries.
+      </p>
+      <div class="current-build__actions">
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN UP</a>
+        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL</a>
+      </div>
+    </div>
+
+    <div class="jutsu__foot" data-px="0.14">
+      <span>“CONNECTING GLOBAL COMMERCE, DELIVERING REAL VALUE.”</span>
+      <span>BRIDGING ONCHAIN DOLLARS AND LOCAL BANKING RAILS</span>
+    </div>
+  </div>
+
+  <!-- bottom-right anchor -->
+  <div class="jutsu__amaterasu" aria-hidden="true">
+    <span class="jutsu__amaterasu-jp">PAYZOLL</span>
+    <span class="jutsu__amaterasu-ro">AMATERASU ENGINE</span>
+    <span class="jutsu__amaterasu-sub">UNSTOPPABLE GLOBAL SETTLEMENT</span>
+  </div>
+</section>
+
+<!-- ══════════ PREVIOUS EXPERIENCE & BUILDS (COMPACT ~10%) ══════════ -->
+<section class="experience" id="work">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div class="section-tag">BACKGROUND</div>
+      <h2 class="section-title">
+        PREVIOUS WORK &amp; BUILDS<br>
+        <span>ESTABLISHING BUILDER CREDIBILITY</span>
+      </h2>
+    </div>
+
+    <div class="experience__subhead" data-reveal>BEFORE PAYZOLL</div>
+    <div class="history-grid">
+      <div class="history-card" data-reveal>
+        <div class="history-card__top">
+          <h3 class="history-card__company">HACKQUEST</h3>
+          <span class="history-card__date">May 2024 — Present</span>
+        </div>
+        <div class="history-card__role">Head of Developer Growth</div>
+        <p class="history-card__desc">
+          Led developer growth across India, Southeast Asia and Africa through cohorts, hackathons, partnerships and ambassador programs.
+        </p>
+        <div class="history-card__metrics">
+          <span>150K+ developers onboarded</span>
+          <span>25K+ certified</span>
+          <span>25+ cohorts</span>
+          <span>15+ global hackathons</span>
+        </div>
+      </div>
+
+      <div class="history-card" data-reveal>
+        <div class="history-card__top">
+          <h3 class="history-card__company">AVOCADO WALLET / INSTADAPP</h3>
+          <span class="history-card__date">Dec 2023 — May 2024</span>
+        </div>
+        <div class="history-card__role">Developer Advocate</div>
+        <p class="history-card__desc">
+          Built educational content, communities and Web3 events focused on self-custody, DeFi and blockchain adoption.
+        </p>
+      </div>
+    </div>
+
+    <div class="experience__subhead" data-reveal style="margin-top: 3.5rem;">THINGS I'VE BUILT</div>
+    <div class="projects-grid">
+      <div class="project-card" data-reveal>
+        <h3 class="project-card__name">ORBIT FINANCE</h3>
+        <p class="project-card__tag">Self-Repaying Lending Protocol</p>
+        <p class="project-card__desc">Hybrid DeFi protocol combining yield-backed collateral strategies and tokenized RWAs.</p>
+      </div>
+      <div class="project-card" data-reveal>
+        <h3 class="project-card__name">AUTONOMY FINANCE</h3>
+        <p class="project-card__tag">Borrow Against Your Story</p>
+        <p class="project-card__desc">Decentralized lending protocol using Story Protocol IP assets as collateral.</p>
+      </div>
+    </div>
+
+    <div class="experience__subhead" data-reveal style="margin-top: 3.5rem;">TOOLS OF THE TRADE</div>
+    <div class="skills-strip" data-reveal>
+      <span>Solidity</span>
+      <span>Rust</span>
+      <span>TypeScript</span>
+      <span>JavaScript</span>
+      <span>React</span>
+      <span>Next.js</span>
+      <span>Node.js</span>
+      <span>Smart Contracts</span>
+      <span>DeFi</span>
+      <span>Full-Stack Development</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ACT IV — FINAL CONTACT & CONVERSION ══════════ -->
+<section class="contact" id="contact">
+  <div class="container contact__inner">
+    <div class="contact__glyph" data-reveal>CONNECT</div>
+    <div class="section-tag" data-reveal>GET IN TOUCH · CONTACT</div>
+    <h2 class="contact__title" data-reveal>LET'S TALK.</h2>
+    <p class="contact__subtitle" data-reveal>
+      Building something in global payments?<br>
+      Want to talk about PayZoll, payments, or building together?
+    </p>
+
+    <div class="contact__actions" data-reveal>
+      <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--xl">
+        BOOK A CALL WITH ITACHI
+      </a>
+      <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--xl">
+        SIGN UP FOR PAYZOLL
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer id="end">
+  <div class="container">
+    <div class="footer__brand">
+      <div class="footer__name">ITACHI</div>
+      <div class="footer__title">Co-Founder @ PayZoll</div>
+    </div>
+
+    <div class="footer__links">
+      <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer">PayZoll</a>
+      <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer">Book a Call</a>
+      <a href="https://x.com/itachionchain" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+      <a href="https://github.com/Meghamittal0920/itachi" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 Itachi · Co-Founder @ PayZoll. All rights reserved.</span>
+      <span>GLOBAL PAYMENTS · BUILT FOR THE ONCHAIN WORLD</span>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- ══════════ STICKY BADGE ══════════ -->
+<div class="sticky-badge" id="stickyBadge"
+     data-cal-link="payzoll/30min"
+     data-cal-namespace="payzoll"
+     data-cal-config='{"layout":"month_view"}'
+     role="button" tabindex="0" aria-label="Book a call for PayZoll demo">
+  <span class="sticky-badge__jp">BOOK A CALL</span>
+  <span class="sticky-badge__en">FOR PAYZOLL DEMO</span>
+</div>
+
+<!-- ══════════ CAL.COM EMBED INIT ══════════ -->
+<script>
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const ns=ar[1];api.q=api.q||[];typeof ns==="string"?(cal.ns[ns]=api)&&p(api,ar):p(cal,ar);return}p(cal,ar)};})(window,"https://app.cal.com/embed/embed.js","init");
+
+Cal("init", "payzoll", { origin: "https://cal.com" });
+
+Cal.ns.payzoll("ui", {
+  theme: "dark",
+  styles: {
+    branding: { brandColor: "#ff2b2b" }
+  },
+  cssVarsPerTheme: {
+    dark:  { "cal-brand": "#ff2b2b", "cal-brand-emphasis": "#c0121f", "cal-brand-text": "#ffffff" },
+    light: { "cal-brand": "#ff2b2b", "cal-brand-emphasis": "#c0121f", "cal-brand-text": "#ffffff" }
+  },
+  hideEventTypeDetails: false,
+  layout: "month_view"
+});
+</script>
+
+<script type="module" src="main.js"></script>
+</body>
+</html>
