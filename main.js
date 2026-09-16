@@ -87,7 +87,7 @@ function syncSize(canvas) {
 /* Fills the canvas, but never crops the sides harder than `maxUp` allows —
    so on tall/narrow screens the composition (a face, two eyes) survives
    instead of zooming into a nostril. */
-function drawCover(ctx, img, cw, ch, maxUp = 2.0) {
+function drawCover(ctx, img, cw, ch, maxUp = 2.0, yBias = 0.5) {
   if (!img || !img.naturalWidth) return false;
   const ir = img.naturalWidth / img.naturalHeight;
   let w = cw, h = cw / ir;                 // start by fitting the width
@@ -95,7 +95,9 @@ function drawCover(ctx, img, cw, ch, maxUp = 2.0) {
     const s = Math.min(ch / h, maxUp);
     w *= s; h *= s;
   }
-  ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
+  // yBias 0.5 centres. Lower values ride the frame higher, which on a tall
+  // phone closes the letterbox gap under the navbar instead of splitting it.
+  ctx.drawImage(img, (cw - w) / 2, (ch - h) * yBias, w, h);
   return true;
 }
 
@@ -919,7 +921,9 @@ function tick() {
   if (idx !== lastDrawn) {
     const w = mainCanvas.width, h = mainCanvas.height;
     mainCtx.clearRect(0, 0, w, h);
-    if (drawCover(mainCtx, mainFrames[idx], w, h)) lastDrawn = idx;
+    // maxUp caps the crop, so a narrow screen letterboxes; ride it upward
+    const bias = window.innerWidth <= 820 ? 0.2 : 0.5;
+    if (drawCover(mainCtx, mainFrames[idx], w, h, 2.0, bias)) lastDrawn = idx;
   }
   paintOverlays(scrubProgress);
 
