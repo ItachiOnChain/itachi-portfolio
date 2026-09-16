@@ -74,10 +74,12 @@
     </div>
   </a>
 
-  <nav class="chrome__nav">
+  <nav class="chrome__nav" id="chromeNav">
     <a href="#about" data-sub="FOUNDER">ABOUT ME</a>
     <a href="#payzoll" data-sub="INFRASTRUCTURE">ABOUT PAYZOLL</a>
     <a href="#contact" data-sub="CONNECT">CONTACT ME</a>
+    <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer"
+       class="chrome__cta chrome__cta--signup">CHECK OUT PAYZOLL</a>
   </nav>
 
   <div class="chrome__actions">
@@ -88,6 +90,10 @@
       <span class="chrome__sound-state" id="soundState">OFF</span>
     </button>
     <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="chrome__cta chrome__cta--signup">CHECK OUT PAYZOLL</a>
+    <button class="chrome__burger" id="navToggle" type="button"
+            aria-expanded="false" aria-controls="chromeNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -117,7 +123,7 @@
       <h1 class="phase__title">INDIVIDUALS</h1>
       <p class="phase__desc">receive USDC, USDT, and 50+ fiat currencies from clients around the world and settle directly into your local bank account.</p>
       <div class="phase__actions">
-        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">CHECK OUT PAYZOLL</a>
         <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
       </div>
     </div>
@@ -128,7 +134,7 @@
       <h2 class="phase__title">BUSINESSES</h2>
       <p class="phase__desc">receive international payments from customers around the world and settle them directly into your business account.</p>
       <div class="phase__actions">
-        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">CHECK OUT PAYZOLL</a>
         <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
       </div>
     </div>
@@ -139,7 +145,7 @@
       <h2 class="phase__title">TEAMS</h2>
       <p class="phase__desc">pay people across borders using USDC, USDT, or 50+ fiat currencies, with payouts to local bank accounts in 80+ countries.</p>
       <div class="phase__actions">
-        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">CHECK OUT PAYZOLL</a>
         <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
       </div>
     </div>
@@ -153,7 +159,7 @@
         <div class="pill"><strong>TRANSPARENT</strong> <span>1% flat fee. No hidden markups.</span></div>
         <div class="pill"><strong>COMPLIANT</strong> <span>Built around compliant banking rails</span></div>
         <div class="phase__actions">
-        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">SIGN UP</a>
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm">CHECK OUT PAYZOLL</a>
         <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--sm">BOOK A CALL</a>
       </div>
       </div>
@@ -188,7 +194,7 @@
       </p>
 
       <div class="founder__ctas" data-reveal>
-        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN UP</a>
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">CHECK OUT PAYZOLL</a>
         <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL WITH ITACHI</a>
       </div>
     </div>
@@ -249,267 +255,187 @@
     <div class="eyes__copy">
       <h2>SEE HOW MONEY MOVES THROUGH <span>PAYZOLL</span>.</h2>
       <div class="eyes__actions">
-        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN IN TO PAYZOLL</a>
+        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">CHECK OUT PAYZOLL</a>
         <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ PRODUCT FLOW SECTION ══════════ -->
-<section class="product-flow" id="how-it-works">
-  <div class="container">
-    <div class="section-header text-center" data-reveal>
-      <div class="section-tag">PRODUCT FLOW</div>
-      <h2 class="section-title">
-        HOW PAYZOLL WORKS<br>
-        <span>FOUR STEPS TO GLOBAL SETTLEMENT</span>
-      </h2>
-      <p class="section-lead">
-        A seamless path for global money movement, built on stablecoins and direct local clearing.
-      </p>
-    </div>
-
-    <div class="flow-grid">
-      <div class="flow-card" data-reveal>
-        <div class="flow-card__step">STEP 01</div>
-        <h3 class="flow-card__title">GET PAID</h3>
-        <p class="flow-card__desc">Receive payments from clients, companies, or platforms anywhere in the world.</p>
-        <div class="flow-card__badge">GLOBAL INVOICING</div>
-      </div>
-      <div class="flow-card" data-reveal>
-        <div class="flow-card__step">STEP 02</div>
-        <h3 class="flow-card__title">CHOOSE YOUR RAIL</h3>
-        <p class="flow-card__desc">Accept digital dollars onchain or settle directly into 50+ local fiat currencies.</p>
-        <div class="flow-card__badge">STABLECOINS &amp; FIAT</div>
-      </div>
-      <div class="flow-card" data-reveal>
-        <div class="flow-card__step">STEP 03</div>
-        <h3 class="flow-card__title">MOVE GLOBALLY</h3>
-        <p class="flow-card__desc">Send money across borders in seconds with minimal fees and zero hold-ups.</p>
-        <div class="flow-card__badge">INSTANT ROUTING</div>
-      </div>
-      <div class="flow-card" data-reveal>
-        <div class="flow-card__step">STEP 04</div>
-        <h3 class="flow-card__title">PAY LOCALLY</h3>
-        <p class="flow-card__desc">Settle funds directly into local bank accounts across 80+ countries.</p>
-        <div class="flow-card__badge">LOCAL CLEARING</div>
-      </div>
-    </div>
-
-    <div class="flow-actions text-center" data-reveal>
-      <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg">SIGN UP FOR PAYZOLL</a>
-      <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--lg">BOOK A CALL</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ WHO IS PAYZOLL FOR? ══════════ -->
-<section class="audience" id="audience">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <div class="section-tag">AUDIENCE · WHO IS PAYZOLL FOR</div>
-      <h2 class="section-title">
-        BUILT FOR EVERYONE<br>
-        <span>MOVING VALUE GLOBALLY</span>
-      </h2>
-    </div>
-
-    <div class="audience__grid">
-      <div class="audience-card" data-reveal>
-        <span class="audience-card__num">01 / INDIVIDUALS</span>
-        <h3 class="audience-card__title">FOR INDIVIDUALS</h3>
-        <p class="audience-card__highlight">Get paid globally.</p>
-        <p class="audience-card__desc">For freelancers, contractors, and individuals receiving international client payments.</p>
-        <div class="audience-card__pill">STABLECOINS + LOCAL FIAT</div>
-      </div>
-
-      <div class="audience-card" data-reveal>
-        <span class="audience-card__num">02 / COMPANIES</span>
-        <h3 class="audience-card__title">FOR COMPANIES</h3>
-        <p class="audience-card__highlight">Pay your people globally.</p>
-        <p class="audience-card__desc">Pay distributed teams, contractors, and vendors across borders without banking bottlenecks.</p>
-        <div class="audience-card__pill">PAYROLL &amp; VENDORS</div>
-      </div>
-
-      <div class="audience-card" data-reveal>
-        <span class="audience-card__num">03 / BUSINESSES</span>
-        <h3 class="audience-card__title">FOR BUSINESSES</h3>
-        <p class="audience-card__highlight">Move money across borders.</p>
-        <p class="audience-card__desc">Use stablecoins and fiat payment rails for international transactions and instant treasury movement.</p>
-        <div class="audience-card__pill">CROSS-BORDER LIQUIDITY</div>
-      </div>
-    </div>
-
-    <div class="audience__actions" data-reveal>
-      <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN UP</a>
-      <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ ACT III — THE PAYZOLL DIFFERENCE / JUTSU GRID ══════════ -->
+<!-- ══════════ ACT III — FULL-SCREEN ITACHI / WORK EXPERIENCE ══════════ -->
 <section class="jutsu" id="jutsu">
   <div class="jutsu__reveal" id="jutsuReveal" aria-hidden="true"></div>
   <div class="jutsu__rain" aria-hidden="true"></div>
   <canvas class="ghost" id="ghostCanvas" aria-hidden="true"></canvas>
 
-  <div class="container jutsu__inner">
-    <div class="jutsu__head">
-      <span class="eyebrow" data-px="0.10">BEHIND PAYZOLL</span>
-      <h2 data-px="0.18">Global money movement<br>shouldn't require a maze.</h2>
-      <p data-px="0.26">The core architecture behind PayZoll — connecting modern onchain liquidity with battle-tested banking rails. Transparent, swift, and built for builders.</p>
-      <div class="jutsu__meta" data-px="0.34">
-        <span><i>SPEED</i>INSTANT RAILS</span>
-        <span><i>HYBRID</i>DUAL STACK</span>
-        <span><i>PILLARS</i>FOUR CORE RAILS</span>
-      </div>
-      <p class="jutsu__hint" data-px="0.40">HOVER · ILLUMINATE THE NETWORK</p>
+  <div class="jutsu__stage" id="work">
+
+    <!-- left — heading over the image -->
+    <div class="jutsu__heading">
+      <span class="jutsu__eyebrow">BACKGROUND</span>
+      <h2 class="jutsu__title">WORK<br>EXPERIENCE</h2>
     </div>
 
-    <!-- 4 Feature Cards -->
-    <div class="jutsu__grid">
-      <div class="card">
-        <span class="card__num">01</span>
-        <div class="card__title">STABLECOINS</div>
-        <div class="card__sub">DIGITAL DOLLARS</div>
-        <p class="card__text">Fast, borderless settlement using digital dollars. Settle transactions in seconds without traditional banking friction or intermediary hold-ups.</p>
-        <div class="card__foot"><i>RAIL</i>ONCHAIN SETTLEMENT</div>
-      </div>
+    <!-- right — three hover-expanding experience cards -->
+    <div class="jutsu__record" id="workRecord">
 
-      <div class="card">
-        <span class="card__num">02</span>
-        <div class="card__title">50+ FIAT</div>
-        <div class="card__sub">LOCAL CURRENCIES</div>
-        <p class="card__text">Seamless integration with 50+ fiat currencies worldwide. Let your recipients receive in the native currencies they actually spend every day.</p>
-        <div class="card__foot"><i>FX</i>NATIVE LOCAL CURRENCY</div>
-      </div>
-
-      <div class="card">
-        <span class="card__num">03</span>
-        <div class="card__title">80+ NATIONS</div>
-        <div class="card__sub">GLOBAL COVERAGE</div>
-        <p class="card__text">Direct access to local clearing rails across 80+ jurisdictions. Low fees and swift local deposits without correspondent bank penalties.</p>
-        <div class="card__foot"><i>LOCAL</i>DOMESTIC CLEARING</div>
-      </div>
-
-      <div class="card">
-        <span class="card__num">04</span>
-        <div class="card__title">CROSS-BORDER</div>
-        <div class="card__sub">UNIFIED PAYMENTS</div>
-        <p class="card__text">One cohesive infrastructure for individuals, companies, and businesses. Move money across borders without navigating fragmented payment silos.</p>
-        <div class="card__foot"><i>STACK</i>SINGLE INTEGRATION</div>
-      </div>
-    </div>
-
-    <!-- Current Build Reveal / Culmination block -->
-    <div class="current-build" data-reveal>
-      <div class="current-build__header">
-        <span class="current-build__badge">CURRENT BUILD</span>
-        <h3 class="current-build__title">PAYZOLL</h3>
-        <p class="current-build__tag">GLOBAL PAYMENTS. BUILT FOR THE ONCHAIN WORLD.</p>
-      </div>
-      <p class="current-build__desc">
-        PayZoll enables individuals to get paid and companies to pay teams, contractors, and vendors. Native support for stablecoins and 50+ fiat currencies across 80+ countries.
-      </p>
-      <div class="current-build__actions">
-        <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--primary">SIGN UP</a>
-        <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer" class="btn btn--secondary">BOOK A CALL</a>
-      </div>
-    </div>
-
-    <div class="jutsu__foot" data-px="0.14">
-      <span>“CONNECTING GLOBAL COMMERCE, DELIVERING REAL VALUE.”</span>
-      <span>BRIDGING ONCHAIN DOLLARS AND LOCAL BANKING RAILS</span>
-    </div>
-  </div>
-
-  <!-- bottom-right anchor -->
-  <div class="jutsu__amaterasu" aria-hidden="true">
-    <span class="jutsu__amaterasu-jp">PAYZOLL</span>
-    <span class="jutsu__amaterasu-ro">AMATERASU ENGINE</span>
-    <span class="jutsu__amaterasu-sub">UNSTOPPABLE GLOBAL SETTLEMENT</span>
-  </div>
-</section>
-
-<!-- ══════════ PREVIOUS EXPERIENCE & BUILDS (COMPACT ~10%) ══════════ -->
-<section class="experience" id="work">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <div class="section-tag">BACKGROUND</div>
-      <h2 class="section-title">
-        PREVIOUS WORK &amp; BUILDS<br>
-        <span>ESTABLISHING BUILDER CREDIBILITY</span>
-      </h2>
-    </div>
-
-    <div class="experience__subhead" data-reveal>BEFORE PAYZOLL</div>
-    <div class="history-grid">
-      <div class="history-card" data-reveal>
-        <div class="history-card__top">
-          <h3 class="history-card__company">HACKQUEST</h3>
-          <span class="history-card__date">May 2024 — Present</span>
+      <article class="xp" data-xp tabindex="0" aria-expanded="false">
+        <div class="xp__head">
+          <h3 class="xp__company">HACKQUEST</h3>
+          <span class="xp__date">Jan 2026 — Present</span>
         </div>
-        <div class="history-card__role">Head of Developer Growth</div>
-        <p class="history-card__desc">
-          Led developer growth across India, Southeast Asia and Africa through cohorts, hackathons, partnerships and ambassador programs.
-        </p>
-        <div class="history-card__metrics">
-          <span>150K+ developers onboarded</span>
-          <span>25K+ certified</span>
-          <span>25+ cohorts</span>
-          <span>15+ global hackathons</span>
+        <div class="xp__role">Head of Developer Growth</div>
+
+        <div class="xp__preview">
+          <div class="xp__preview-inner">
+            <p class="xp__desc">
+              Led developer growth across India, Southeast Asia and Africa, driving ~30% month-on-month ecosystem growth.
+            </p>
+            <div class="xp__metrics">
+              <span>2L+ developers onboarded</span>
+              <span>25K+ certified</span>
+              <span>25+ cohorts</span>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="history-card" data-reveal>
-        <div class="history-card__top">
-          <h3 class="history-card__company">AVOCADO WALLET / INSTADAPP</h3>
-          <span class="history-card__date">Dec 2023 — May 2024</span>
+        <div class="xp__detail">
+          <div class="xp__detail-inner">
+            <ol class="xp__timeline">
+              <li class="xp__stint">
+                <div class="xp__stint-head">
+                  <span class="xp__stint-role">HEAD OF DEVELOPER GROWTH</span>
+                  <span class="xp__stint-date">Jan 2026 — Present</span>
+                </div>
+                <ul class="xp__points">
+                  <li>Led developer growth across India, Southeast Asia and Africa</li>
+                  <li>Drove ~30% month-on-month developer ecosystem growth</li>
+                  <li>Onboarded 2L+ developers, contributing to 25,000+ certified Web3 developers</li>
+                  <li>Organized 15+ global hackathons and 5+ IRL hackathons</li>
+                  <li>Built partnerships with Monad, Uniswap, Movement Labs, 0G</li>
+                  <li>Launched and scaled a global ambassador program</li>
+                </ul>
+              </li>
+
+              <li class="xp__stint">
+                <div class="xp__stint-head">
+                  <span class="xp__stint-role">APAC DEVELOPER ECOSYSTEM &amp; COMMUNITY GROWTH MANAGER</span>
+                  <span class="xp__stint-date">Oct 2025 — Dec 2025</span>
+                </div>
+                <ul class="xp__points">
+                  <li>Led ecosystem growth across India and Southeast Asia</li>
+                  <li>Established partnerships with Monad, Movement Labs, 0G and others</li>
+                  <li>Built relationships with 25+ universities and developer communities</li>
+                  <li>Onboarded 10,000+ developers across 5+ regional events</li>
+                  <li>Conducted 15+ city-level developer meetups</li>
+                </ul>
+              </li>
+
+              <li class="xp__stint">
+                <div class="xp__stint-head">
+                  <span class="xp__stint-role">DEVELOPER ADVOCATE</span>
+                  <span class="xp__stint-date">May 2024 — Oct 2025</span>
+                </div>
+                <ul class="xp__points">
+                  <li>Organized and hosted 10+ Web3 cohorts in India</li>
+                  <li>Led onboarding of Web2 developers into Web3</li>
+                  <li>Converted 500+ developers per cohort into 350+ certified Web3 developers</li>
+                  <li>Organized 15+ meetups, workshops and community events</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
         </div>
-        <div class="history-card__role">Developer Advocate</div>
-        <p class="history-card__desc">
-          Built educational content, communities and Web3 events focused on self-custody, DeFi and blockchain adoption.
-        </p>
-      </div>
+      </article>
+
+      <article class="xp" data-xp tabindex="0" aria-expanded="false">
+        <div class="xp__head">
+          <h3 class="xp__company">INSTADAPP</h3>
+          <span class="xp__date">Dec 2023 — May 2024</span>
+        </div>
+        <div class="xp__role">Developer Advocate</div>
+
+        <div class="xp__preview">
+          <div class="xp__preview-inner">
+            <p class="xp__desc">
+              Created educational content around self-custodial wallets and Web3 onboarding.
+            </p>
+            <div class="xp__metrics">
+              <span>10+ meetups</span>
+              <span>Community growth</span>
+              <span>Wallet adoption</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="xp__detail">
+          <div class="xp__detail-inner">
+            <ol class="xp__timeline">
+              <li class="xp__stint">
+                <div class="xp__stint-head">
+                  <span class="xp__stint-role">DEVELOPER ADVOCATE</span>
+                  <span class="xp__stint-date">Dec 2023 — May 2024</span>
+                </div>
+                <ul class="xp__points">
+                  <li>Created educational content on self-custodial wallets and Web3 onboarding</li>
+                  <li>Organized 10+ Web3 meetups and community events across India</li>
+                  <li>Grew developer and user community through engagement and awareness initiatives</li>
+                  <li>Collaborated with the DevRel team to improve adoption of wallet infrastructure</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
+      <article class="xp" data-xp tabindex="0" aria-expanded="false">
+        <div class="xp__head">
+          <h3 class="xp__company">DEVREL UNI</h3>
+          <span class="xp__date">May 2024 — Jun 2024</span>
+        </div>
+        <div class="xp__role">DevRel Uni Mentee · Cohort 5</div>
+
+        <div class="xp__preview">
+          <div class="xp__preview-inner">
+            <p class="xp__desc">
+              Completed a structured developer relations program focused on advocacy, community building and developer engagement.
+            </p>
+            <div class="xp__metrics">
+              <span>80+ attendees on hosted Twitter Space</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="xp__detail">
+          <div class="xp__detail-inner">
+            <ol class="xp__timeline">
+              <li class="xp__stint">
+                <div class="xp__stint-head">
+                  <span class="xp__stint-role">DEVREL UNI MENTEE · COHORT 5</span>
+                  <span class="xp__stint-date">May 2024 — Jun 2024</span>
+                </div>
+                <ul class="xp__points">
+                  <li>Completed a structured developer relations program focused on advocacy, community building and developer engagement</li>
+                  <li>Learned best practices from experienced DevRel professionals across Web3 and developer tooling ecosystems</li>
+                  <li>Participated in practical sessions and collaborative assignments</li>
+                  <li>Hosted a Twitter Space with DevRel professionals, attracting 80+ attendees</li>
+                  <li>Built foundational skills in developer education, content strategy and community-led growth</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </article>
+
     </div>
 
-    <div class="experience__subhead" data-reveal style="margin-top: 3.5rem;">THINGS I'VE BUILT</div>
-    <div class="projects-grid">
-      <div class="project-card" data-reveal>
-        <h3 class="project-card__name">ORBIT FINANCE</h3>
-        <p class="project-card__tag">Self-Repaying Lending Protocol</p>
-        <p class="project-card__desc">Hybrid DeFi protocol combining yield-backed collateral strategies and tokenized RWAs.</p>
-      </div>
-      <div class="project-card" data-reveal>
-        <h3 class="project-card__name">AUTONOMY FINANCE</h3>
-        <p class="project-card__tag">Borrow Against Your Story</p>
-        <p class="project-card__desc">Decentralized lending protocol using Story Protocol IP assets as collateral.</p>
-      </div>
-    </div>
-
-    <div class="experience__subhead" data-reveal style="margin-top: 3.5rem;">TOOLS OF THE TRADE</div>
-    <div class="skills-strip" data-reveal>
-      <span>Solidity</span>
-      <span>Rust</span>
-      <span>TypeScript</span>
-      <span>JavaScript</span>
-      <span>React</span>
-      <span>Next.js</span>
-      <span>Node.js</span>
-      <span>Smart Contracts</span>
-      <span>DeFi</span>
-      <span>Full-Stack Development</span>
-    </div>
   </div>
 </section>
 
 <!-- ══════════ ACT IV — FINAL CONTACT & CONVERSION ══════════ -->
 <section class="contact" id="contact">
   <div class="container contact__inner">
-    <div class="contact__glyph" data-reveal>CONNECT</div>
-    <div class="section-tag" data-reveal>GET IN TOUCH · CONTACT</div>
-    <h2 class="contact__title" data-reveal>LET'S TALK.</h2>
+    <h2 class="contact__title" data-reveal>GET IN TOUCH.</h2>
     <p class="contact__subtitle" data-reveal>
       Building something in global payments?<br>
       Want to talk about PayZoll, payments, or building together?
@@ -520,7 +446,7 @@
         BOOK A CALL WITH ITACHI
       </a>
       <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer" class="btn btn--secondary btn--xl">
-        SIGN UP FOR PAYZOLL
+        CHECK OUT PAYZOLL
       </a>
     </div>
   </div>
@@ -538,12 +464,12 @@
       <a href="https://payzoll.finance" target="_blank" rel="noopener noreferrer">PayZoll</a>
       <a href="https://cal.com/payzoll/30min" target="_blank" rel="noopener noreferrer">Book a Call</a>
       <a href="https://x.com/itachionchain" target="_blank" rel="noopener noreferrer">Twitter / X</a>
-      <a href="https://github.com/Meghamittal0920/itachi" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/itachionchain/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
 
     <div class="footer__bottom">
-      <span>© 2026 Itachi · Co-Founder @ PayZoll. All rights reserved.</span>
-      <span>GLOBAL PAYMENTS · BUILT FOR THE ONCHAIN WORLD</span>
+      <span>© 2026 Itachionchain. All rights reserved.</span>
+      <span>Payzoll. Pay Anyone. Pay Anywhere.</span>
     </div>
   </div>
 </footer>

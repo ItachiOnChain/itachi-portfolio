@@ -617,53 +617,56 @@ jutsuSection.addEventListener('pointermove', e => {
 
 jutsuSection.addEventListener('pointerleave', () => setLit(false), { passive: true });
 
-// hovering a card opens the reveal wider — the image "comes through" the card
-document.querySelectorAll('.jutsu .card').forEach(card => {
-  card.addEventListener('pointerenter', () => { revealRT = 580; }, { passive: true });
-  card.addEventListener('pointerleave', () => { revealRT = 420; }, { passive: true });
-});
+/* ── experience cards — hover to expand, one at a time ──
+   Hover drives it on a fine pointer; touch devices get the same behaviour on
+   tap, with a tap outside collapsing everything. */
+const workRecord = document.getElementById('workRecord');
+const xpCards    = [...workRecord.querySelectorAll('[data-xp]')];
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
 
-/* parallax targets: heading bits carry an explicit data-px, cards get one by index */
-const pxItems = [...document.querySelectorAll('#jutsu [data-px]')]
-  .map(el => ({ el, speed: parseFloat(el.dataset.px) || 0.2, delay: 0 }));
-
-document.querySelectorAll('#jutsu .card').forEach((el, i) => {
-  pxItems.push({ el, speed: 0.30 + i * 0.06, delay: i * 0.05 });
-});
-document.querySelectorAll('.jutsu__amaterasu').forEach(el => {
-  pxItems.push({ el, speed: -0.22, delay: 0.1 });
-});
-
-// start hidden so nothing pops in before the first parallax paint
-pxItems.forEach(it => { it.el.style.opacity = '0'; });
-ghost.resize();
-
-function paintJutsu() {
-  const r = jutsuSection.getBoundingClientRect();
-  const vh = window.innerHeight;
-  if (r.top > vh || r.bottom < 0) return;
-
-  // 0 when the section is one viewport below, 1 once its top passes the middle
-  const enter = clamp((vh - r.top) / (vh * 0.9));
-
-  for (const it of pxItems) {
-    const local = clamp((enter - it.delay) / (1 - it.delay || 1));
-    const eased = 1 - Math.pow(1 - local, 3);          // easeOutCubic
-    // parallax keeps drifting after the fade completes
-    const rect = it.el.getBoundingClientRect();
-    const centred = (rect.top + rect.height / 2 - vh / 2) / vh;   // -1..1-ish
-    const drift = centred * it.speed * 120;
-    it.el.style.opacity = eased.toFixed(3);
-    it.el.style.transform =
-      `translate3d(0, ${(drift + (1 - eased) * 60).toFixed(1)}px, 0)`;
+function openXp(card) {
+  for (const c of xpCards) {
+    const on = c === card;
+    c.classList.toggle('is-open', on);
+    c.setAttribute('aria-expanded', String(on));
   }
 }
+
+for (const card of xpCards) {
+  card.addEventListener('pointerenter', e => {
+    if (e.pointerType === 'touch' || !finePointer.matches) return;
+    openXp(card);
+  }, { passive: true });
+
+  // tap / click / Enter — also covers touch and keyboard
+  card.addEventListener('click', () => {
+    openXp(card.classList.contains('is-open') ? null : card);
+  });
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); }
+    if (e.key === 'Escape') { openXp(null); card.blur(); }
+  });
+  card.addEventListener('focusin', () => { if (!finePointer.matches) return; openXp(card); });
+}
+
+// leaving the whole card area collapses everything
+workRecord.addEventListener('pointerleave', e => {
+  if (e.pointerType === 'touch') return;
+  openXp(null);
+}, { passive: true });
+
+// touch: a tap anywhere outside the cards collapses them
+document.addEventListener('pointerdown', e => {
+  if (!workRecord.contains(e.target)) openXp(null);
+}, { passive: true });
+
+ghost.resize();
 
 /* ═════════════════════ custom cursor ═════════════════════ */
 const cursorEl = document.getElementById('cursor');
 let cursorX = window.innerWidth / 2, cursorY = window.innerHeight / 2;
 let cx = cursorX, cy = cursorY;
-document.querySelectorAll('a, button, .btn, .card, .stat-card, .audience-card, .history-card, .project-card, .flow-card, .eyes__sticky').forEach(el => {
+document.querySelectorAll('a, button, .btn, .stat-card, .history-card, .eyes__sticky').forEach(el => {
   el.addEventListener('pointerenter', () => cursorEl.classList.add('hot'));
   el.addEventListener('pointerleave', () => cursorEl.classList.remove('hot'));
 });
@@ -838,6 +841,37 @@ function strike() {
 
 if (!reducedMotion) stormTimer = setTimeout(strike, 1800);
 
+/* ── mobile nav panel ── */
+const chromeEl  = document.querySelector('.chrome');
+const navToggle = document.getElementById('navToggle');
+const chromeNav = document.getElementById('chromeNav');
+
+function setNavOpen(on) {
+  chromeEl.classList.toggle('nav-open', on);
+  navToggle.setAttribute('aria-expanded', String(on));
+  navToggle.setAttribute('aria-label', on ? 'Close menu' : 'Open menu');
+}
+
+navToggle.addEventListener('click', () => {
+  setNavOpen(!chromeEl.classList.contains('nav-open'));
+});
+
+// tapping a link, pressing Escape, or touching outside all dismiss it
+chromeNav.addEventListener('click', e => {
+  if (e.target.tagName === 'A') setNavOpen(false);
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') setNavOpen(false);
+});
+document.addEventListener('pointerdown', e => {
+  if (!chromeEl.contains(e.target)) setNavOpen(false);
+}, { passive: true });
+
+// never leave the panel open if the viewport grows back to desktop
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) setNavOpen(false);
+}, { passive: true });
+
 /* ── sound toggle (browsers require a gesture before audio) ── */
 const soundToggle = document.getElementById('soundToggle');
 const soundState  = document.getElementById('soundState');
@@ -949,7 +983,6 @@ function tick() {
   }
 
   /* — Act III: parallax, reveal mask, ghost cursor — */
-  paintJutsu();
 
   const jr = jutsuSection.getBoundingClientRect();
   if (jr.top < window.innerHeight && jr.bottom > 0) {
