@@ -499,6 +499,11 @@ body {
   font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.3em;
   color: var(--blood-hot); margin-bottom: 0.8rem; font-weight: 600;
   text-transform: uppercase;
+  /* the longest kicker runs past .phase's 520px column — let it break out of
+     that box and hold one line instead of wrapping (reset on phones below) */
+  white-space: nowrap;
+  width: max-content;
+  max-width: calc(100vw - 2 * clamp(2rem, 8vw, 8rem));
 }
 .phase__title {
   font-family: var(--serif); font-weight: 800;
@@ -1079,6 +1084,13 @@ footer {
   }
   .phase__actions { justify-content: center; }
   .phase__pills { align-items: center; }
+  /* centred and narrow here — wrapping is correct again */
+  .phase__kicker {
+    white-space: normal;
+    width: auto;
+    max-width: 100%;
+    letter-spacing: 0.22em;
+  }
   .titleblock { bottom: 8vh; }
   .rail { display: none; }
   .eyes__frame { top: 5rem; bottom: 3rem; left: 1.5rem; right: 1.5rem; }
